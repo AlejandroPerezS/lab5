@@ -1,0 +1,58 @@
+﻿@model IEnumerable<lab5.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index  </h1>
+
+<div class="img">
+    <img src="./logo-icon.png" />
+</div>
+<p>
+    <a asp-action="Create">Create New</a>
+    
+    
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+               Genre
+            </th>
+            <th>
+                Book Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Author
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="text-body">
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.bookId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.bookId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.bookId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
