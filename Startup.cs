@@ -29,7 +29,7 @@ namespace lab5
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             // disable endpoint routing 
             services.AddMvc(options => options.EnableEndpointRouting = false);
 
