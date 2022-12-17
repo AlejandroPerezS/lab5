@@ -4,6 +4,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <ApplicationIcon>wwwroot\logo-icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == '' Or '$(Configuration)' == 'Debug'">
+  <EnvironmentName>Development</EnvironmentName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' != '' AND '$(Configuration)' != 'Debug' ">
+  <EnvironmentName>Production</EnvironmentName>
+  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v.*.*\WebApplications\Microsoft.WebApplication.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v*.*\WebApplications\Microsoft.WebApplication.targets" Condition="'$(Solutions.VSVersion)' == '*.*'" />
   <ItemGroup>
